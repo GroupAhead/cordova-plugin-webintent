@@ -155,8 +155,9 @@ public class WebIntent extends CordovaPlugin {
             return false;
         } catch (JSONException e) {
             e.printStackTrace();
+            String errorMessage=e.getMessage();
             //return new PluginResult(PluginResult.Status.JSON_EXCEPTION);
-            callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.JSON_EXCEPTION));
+            callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.JSON_EXCEPTION,errorMessage));
             return false;
         }
     }
