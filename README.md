@@ -1,14 +1,12 @@
 # WebIntent Android Plugin for Cordova 3.X #
 By Boris Smus
 
-Cordova 3.X version forked from [Initsogar/cordova-webintent](https://github.com/Initsogar/cordova-webintent).
-
 Phonegap/Cordova 2.X version available at the [WebIntent](https://github.com/phonegap/phonegap-plugins/tree/master/Android/WebIntent) plugin site.
 
 ## Adding the Plugin to your project ##
 1. To install the plugin, use the Cordova CLI and enter the following:
 
-cordova plugin add https://github.com/chrisekelley/cordova-webintent.git
+`cordova plugin add https://github.com/initsogar/cordova-webintent.git`
 
 2. Confirm that the following is in your `res/xml/config.xml` file:
 
