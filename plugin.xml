@@ -5,7 +5,7 @@
       version="1.0.0">
     <name>WebIntent</name>
     <description>Web intents for Cordova</description>
-    <license>Apache</license>
+    <license>MIT</license>
     <keywords>cordova,webintent</keywords>
 
     <js-module src="www/webintent.js" name="WebIntent">
