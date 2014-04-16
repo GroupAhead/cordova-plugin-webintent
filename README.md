@@ -47,7 +47,7 @@ Launches an Android intent. For example:
 ### hasExtra ###
 checks if this app was invoked with the specified extra. For example:
 
-    window.plugins.webintent.hasExtra(WebIntent.EXTRA_TEXT,
+    window.plugins.webintent.hasExtra(window.plugins.webintent.EXTRA_TEXT,
         function(has) {
             // has is true iff it has the extra
         }, function() {
@@ -58,7 +58,7 @@ checks if this app was invoked with the specified extra. For example:
 ### getExtra ###
 Gets the extra that this app was invoked with. For example:
 
-    window.plugins.webintent.getExtra(WebIntent.EXTRA_TEXT,
+    window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
         function(url) {
             // url is the value of EXTRA_TEXT
         }, function() {
