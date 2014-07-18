@@ -30,7 +30,7 @@ import org.apache.cordova.PluginResult;
  */
 public class WebIntent extends CordovaPlugin {
 
-    public CallbackContext onNewIntentCallbackContext = null;
+    private CallbackContext onNewIntentCallbackContext = null;
 
     //public boolean execute(String action, JSONArray args, String callbackId) {
     @Override
