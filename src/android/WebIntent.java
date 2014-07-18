@@ -30,14 +30,12 @@ import org.apache.cordova.PluginResult;
  */
 public class WebIntent extends CordovaPlugin {
 
-    //private String onNewIntentCallback = null;
-    private CallbackContext callbackContext = null;
+    public CallbackContext onNewIntentCallbackContext = null;
 
     //public boolean execute(String action, JSONArray args, String callbackId) {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
         try {
-            this.callbackContext = callbackContext;
 
             if (action.equals("startActivity")) {
                 if (args.length() != 1) {
@@ -111,15 +109,16 @@ public class WebIntent extends CordovaPlugin {
                 callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, uri));
                 return true;
             } else if (action.equals("onNewIntent")) {
+            	//save reference to the callback; will be called on "new intent" events
+                this.onNewIntentCallbackContext = callbackContext;
+        
                 if (args.length() != 0) {
-                    //return new PluginResult(PluginResult.Status.INVALID_ACTION);
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
                     return false;
                 }
-
-                //this.onNewIntentCallback = callbackId;
+                
                 PluginResult result = new PluginResult(PluginResult.Status.NO_RESULT);
-                result.setKeepCallback(true);
+                result.setKeepCallback(true); //re-use the callback on intent events
                 callbackContext.sendPluginResult(result);
                 return true;
                 //return result;
@@ -166,8 +165,11 @@ public class WebIntent extends CordovaPlugin {
 
     @Override
     public void onNewIntent(Intent intent) {
-        if (this.callbackContext != null) {
-            this.callbackContext.success(intent.getDataString());
+    	 
+        if (this.onNewIntentCallbackContext != null) {
+        	PluginResult result = new PluginResult(PluginResult.Status.OK, intent.getDataString());
+        	result.setKeepCallback(true);
+            this.onNewIntentCallbackContext.sendPluginResult(result);
         }
     }
 
