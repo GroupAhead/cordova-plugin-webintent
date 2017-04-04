@@ -1,4 +1,9 @@
 # WebIntent Android Plugin for Cordova 3.X #
+
+## Fork overview
+
+This repo was originally hosted at https://github.com/Initsogar/cordova-webintent.git, but seems to have been removed. So now we're hosting it here.
+
 By Boris Smus
 
 Phonegap/Cordova 2.X version available at the [WebIntent](https://github.com/phonegap/phonegap-plugins/tree/master/Android/WebIntent) plugin site.
